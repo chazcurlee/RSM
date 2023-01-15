@@ -1,0 +1,161 @@
+/* Styles */
+
+.head-container {
+  color: black;
+  background-color: white;
+  width: 100vw;
+  height: auto;
+  display: grid;
+  grid-template-rows: 4em auto;
+  grid-template-columns: auto;
+  position: sticky;
+  top: 0;
+  font-weight: bold;
+}
+
+.head1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head1:hover {
+  cursor: pointer;
+}
+
+.head {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.head:hover {
+  animation: tag-hover-forward 0.1s linear;
+  animation-fill-mode: forwards;
+  text-decoration: underline;
+}
+
+.logo {
+  grid-row-start: 1;
+  grid-column-start: 3;
+  /* border: solid;
+  border-color: red; */
+}
+
+.title {
+  grid-row-start: 1;
+  grid-column-start: 4;
+  /* border: solid;
+  border-color: red; */
+  font-size: 2em;
+  text-decoration: underline;
+}
+
+.head-divider {
+  border-left: solid 1px;
+  border-color: #65666a;
+  height: 4em;
+  align-self: center;
+}
+
+.divide1 {
+  grid-row-start: 1;
+  grid-column-start: 6;
+}
+
+.browse {
+  grid-row-start: 1;
+  grid-column-start: 7;
+  justify-self: right;
+  height: 2em;
+  /* border: solid;
+  border-color: red; */
+}
+
+.top-ten {
+  grid-row-start: 1;
+  grid-column-start: 8;
+  justify-self: right;
+  height: 2em;
+  /* border: solid;
+  border-color: red; */
+}
+
+.divide2 {
+  grid-row-start: 1;
+  grid-column-start: 8;
+}
+
+.sign-up {
+  grid-row-start: 1;
+  grid-column-start: 10;
+  height: 2em;
+  /* border: solid;
+  border-color: red; */
+}
+
+.sign-in {
+  grid-row-start: 1;
+  grid-column-start: 11;
+
+  height: 2em;
+  /* width: 5em; */
+  /* border: solid;
+  border-color: red; */
+}
+
+.button {
+  border: solid 1px;
+  border-color: #0090d1;
+  border-bottom-left-radius: 16px;
+  border-bottom-right-radius: 16px;
+  width: 5em;
+  padding: 20px;
+  cursor: pointer;
+}
+
+.button:hover {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.ghost-button {
+  border-color: #01a647;
+}
+
+.filled-button {
+  background-color: #01a647;
+  border-color: #01a647;
+}
+
+.ghost-button {
+  background-color: white;
+}
+
+.filled-button2 {
+  background-color: #0090d1;
+}
+
+.nav-icon-container {
+  grid-row-start: 2;
+  grid-column-start: span 12;
+  border-bottom: solid 1px;
+  border-color: #65666a;
+  border-style: double;
+  /* background-color: #65666a; */
+  height: 1px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+/* Animations */
+
+@keyframes tag-hover-forward {
+  from {
+    height: 2em;
+  }
+
+  to {
+    height: 3em;
+  }
+}

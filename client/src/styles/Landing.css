@@ -1,0 +1,73 @@
+.landing-container {
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 20vw 60vw 20vw;
+  height: 100vh;
+  grid-gap: 50px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.split {
+  /* display: grid; */
+  /* grid-template-columns: 50% 50%; */
+  display: flex;
+  grid-column-start: 2;
+  /* grid-gap: 10px; */
+  /* padding: 20px; */
+  background-image: url("../assets/Beer-flight.jpeg");
+  background-size: 100%;
+  background-position-y: 75%;
+  background-repeat: no-repeat;
+  /* opacity: 0.5; */
+
+  /* background-color: rgb(101, 102, 106, 0.5); */
+}
+
+.hero {
+  grid-row-start: 1;
+}
+
+.text {
+  padding: 20px;
+  border-radius: 1%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  max-width: 20vw;
+}
+
+.left-text {
+  text-align: left;
+  grid-column-start: 1;
+  align-self: center;
+  background-color: #0090d1;
+}
+
+.right-text {
+  text-align: right;
+  grid-column-start: 2;
+  align-self: flex-start;
+  /* justify-self: center; */
+  background-color: #01a647;
+}
+
+.img {
+  justify-self: center;
+  align-self: center;
+  max-width: 20vw;
+  height: 30vh;
+  width: 20vw;
+  border-style: inset;
+  border-width: 3px;
+  border-color: rgb(101, 102, 106, 0.5);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.right-img {
+  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-row-end: 1;
+}
+
+.left-img {
+  grid-column-start: 1;
+}
