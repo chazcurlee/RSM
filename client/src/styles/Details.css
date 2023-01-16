@@ -33,7 +33,7 @@
   overflow: hidden; */
 }
 
-.details-container-no-map .details-item {
+.details-item-no-map {
   grid-column-start: 2;
   grid-row-start: auto;
 }

@@ -8,6 +8,7 @@ import Brewery from "../components/Brewery";
 const Details = () => {
   let [brewery, setBrewery] = useState([]);
   let { name, lati, long } = useParams();
+  const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   let longi = parseFloat(long);
   let ltit = parseFloat(lati);
   let address =
@@ -42,7 +43,7 @@ const Details = () => {
     getBrewery();
   }, []);
 
-  console.log(defaultProps.center);
+  // console.log(API_KEY);
 
   return lati === "null" ? (
     <div className={`main-bg-color details-container-no-map`}>
@@ -67,7 +68,7 @@ const Details = () => {
             gestureHandling: "greedy",
           }}
           bootstrapURLKeys={{
-            key: "AIzaSyCB7MuJ657ZrfijX4c3T5myVHDWOOErHb8",
+            key: `${API_KEY}`,
           }}
           defaultCenter={defaultProps.center}
           defaultZoom={defaultProps.zoom}
