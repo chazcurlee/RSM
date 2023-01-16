@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 html,
@@ -21,5 +22,5 @@ code {
 .main-bg-color {
   /* background-color: rgb(206, 206, 206); */
   background-image: linear-gradient(#01a647, #0090d1);
-  height: 100vh;
+  height: 100%;
 }

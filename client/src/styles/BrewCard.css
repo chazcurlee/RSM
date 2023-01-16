@@ -1,0 +1,27 @@
+.brewcard-container {
+  height: 100%;
+  grid-column-start: 2;
+  display: grid;
+  grid-template-rows: auto;
+  background-color: rgb(128, 128, 128, 0.7);
+  /* margin-bottom: 20px; */
+  margin-top: 20px;
+  width: 100%;
+  max-width: 40vw;
+  justify-self: center;
+  align-self: center;
+}
+
+.brew-item {
+  padding: 0;
+  text-decoration: underline;
+  /* margin: 5px; */
+}
+
+.brew-name {
+  grid-row-start: 1;
+}
+
+.under-kill {
+  text-decoration: none;
+}

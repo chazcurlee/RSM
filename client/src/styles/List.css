@@ -1,0 +1,16 @@
+.list-container {
+  display: grid;
+  grid-template-columns: 20% 60% 20%;
+  grid-template-rows: auto;
+  grid-gap: 10px;
+  height: 110%;
+  /* justify-content: center;
+  align-content: center; */
+}
+
+.brewcard {
+  grid-column-start: 2;
+  justify-self: center;
+  align-self: center;
+  margin-bottom: 20px;
+}
