@@ -4,9 +4,11 @@ import { useParams } from "react-router-dom";
 import GoogleMapReact from "google-map-react";
 import "../styles/Details.css";
 import Brewery from "../components/Brewery";
+import Reviews from "../components/Reviews";
 
 const Details = () => {
   let [brewery, setBrewery] = useState([]);
+
   let { name, lati, long } = useParams();
   const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
   let longi = parseFloat(long);
@@ -25,7 +27,6 @@ const Details = () => {
       lat: ltit,
       lng: longi,
     },
-    // [lati, long],
     zoom: 11,
   };
 
@@ -43,7 +44,7 @@ const Details = () => {
     getBrewery();
   }, []);
 
-  // console.log(API_KEY);
+  console.log(brewery.id);
 
   return lati === "null" ? (
     <div className={`main-bg-color details-container-no-map`}>
@@ -79,6 +80,9 @@ const Details = () => {
             name={`${brewery.name}`}
           />
         </GoogleMapReact>
+      </div>
+      <div>
+        <Reviews brewery={brewery} />
       </div>
     </div>
   );

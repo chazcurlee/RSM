@@ -1,6 +1,6 @@
 const Top10 = () => {
   return (
-    <div className={`main-bg-color`}>
+    <div>
       <div>Top10</div>
     </div>
   );

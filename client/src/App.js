@@ -6,7 +6,7 @@ import Landing from './pages/Landing';
 import List from './pages/List'
 import SignUp from './pages/SignUp'
 import Login from './pages/Login'
-import Top10 from './pages/Top10'
+import Top10 from './components/Reviews'
 import Details from './pages/Details'
 import Footer from './components/Footer';
 
