@@ -28,7 +28,4 @@ app.get('/api/review/single/:id', reviewController.getReviewById)
 
 
 
-// app.get('/*', (req, res) => {
-//     res.sendFile(`${__dirname}/client/build/index.html`)
-// })
 app.listen(port, () => console.log(`Listening on port ${port}`))
