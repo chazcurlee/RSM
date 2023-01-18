@@ -6,7 +6,7 @@ const Review = new Schema(
         user: {type: String, require: true},
         title: {type: String, required: true},
         body: {type: String, required: true},
-        rating: {type: Number, required: true}
+        
         
         
     },

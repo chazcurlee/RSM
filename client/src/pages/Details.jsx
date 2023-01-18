@@ -8,6 +8,9 @@ import Reviews from "../components/Reviews";
 
 const Details = () => {
   let [brewery, setBrewery] = useState([]);
+  let [reviews, setReviews] = useState([]);
+  const [toggle, setToggle] = useState(false);
+  const [rerend, setRerend] = useState(false);
 
   let { name, lati, long } = useParams();
   const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
@@ -42,47 +45,73 @@ const Details = () => {
       setBrewery(select.data[0]);
     };
     getBrewery();
-  }, []);
 
-  console.log(brewery.id);
+    const getReviews = async () => {
+      let rev = await axios.get(`http://localhost:3001/review/${brewery.id}`);
+      setReviews(rev.data);
+    };
+    getReviews();
+  }, [toggle, rerend]);
+
+  console.log(reviews);
 
   return lati === "null" ? (
-    <div className={`main-bg-color details-container-no-map`}>
-      <div>
+    <div>
+      <div className={`main-bg-color details-container-no-map`}>
         <h1 className="details-item-no-map">{brewery.name}</h1>
         <h3 className="details-item-no-map">{address}</h3>
         <h3 className="details-item-no-map">{brewery.phone}</h3>
         <h3 className="details-item-no-map">{brewery.website_url}</h3>
+        <div>
+          <Reviews
+            brewery={brewery}
+            reviews={reviews}
+            toggle={toggle}
+            setToggle={setToggle}
+            rerend={rerend}
+            setRerend={setRerend}
+          />
+        </div>
       </div>
     </div>
   ) : (
-    <div className={`main-bg-color details-container`}>
-      <div>
-        <h1 className="details-item">{brewery.name}</h1>
-        <h3 className="details-item">{address}</h3>
-        <h3 className="details-item">{brewery.phone}</h3>
-        <h3 className="details-item">{brewery.website_url}</h3>
+    <div>
+      <div className={`main-bg-color details-container`}>
+        <div>
+          <h1 className="details-item">{brewery.name}</h1>
+          <h3 className="details-item">{address}</h3>
+          <h3 className="details-item">{brewery.phone}</h3>
+          <h3 className="details-item">{brewery.website_url}</h3>
+        </div>
+        <div className={`map-container`}>
+          <GoogleMapReact
+            options={{
+              gestureHandling: "greedy",
+            }}
+            bootstrapURLKeys={{
+              key: `${API_KEY}`,
+            }}
+            defaultCenter={defaultProps.center}
+            defaultZoom={defaultProps.zoom}
+          >
+            <Brewery
+              lat={defaultProps.center.lat}
+              lng={defaultProps.center.lng}
+              name={`${brewery.name}`}
+            />
+          </GoogleMapReact>
+        </div>
       </div>
-      <div className={`map-container`}>
-        <GoogleMapReact
-          options={{
-            gestureHandling: "greedy",
-          }}
-          bootstrapURLKeys={{
-            key: `${API_KEY}`,
-          }}
-          defaultCenter={defaultProps.center}
-          defaultZoom={defaultProps.zoom}
-        >
-          <Brewery
-            lat={defaultProps.center.lat}
-            lng={defaultProps.center.lng}
-            name={`${brewery.name}`}
-          />
-        </GoogleMapReact>
-      </div>
       <div>
-        <Reviews brewery={brewery} />
+        <Reviews
+          className="reviews"
+          brewery={brewery}
+          reviews={reviews}
+          toggle={toggle}
+          setToggle={setToggle}
+          rerend={rerend}
+          setRerend={setRerend}
+        />
       </div>
     </div>
   );

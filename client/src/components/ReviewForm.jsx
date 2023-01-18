@@ -11,9 +11,9 @@ const ReviewForm = (props) => {
       user: newReview.user,
       title: newReview.title,
       body: newReview.body,
-      rating: newReview.rating,
     });
     console.log(post);
+
     props.setToggle(!props.toggle);
   };
 
@@ -44,22 +44,12 @@ const ReviewForm = (props) => {
         });
         break;
 
-      case "rating":
-        setNewReview({
-          ...newReview,
-
-          rating: parseInt(entry),
-        });
-        break;
-
       default:
         console.log("Review error");
         break;
     }
     // console.log(newReview);
   };
-
-  //   console.log(props.brewery.id + " this");
 
   return (
     <div>
@@ -82,13 +72,6 @@ const ReviewForm = (props) => {
           placeholder="Name"
           onChange={handleChange}
         ></input>
-        <input
-          type="text"
-          id="rating"
-          placeholder="Rating"
-          onChange={handleChange}
-        ></input>
-        /5
         <input type="submit"></input>
       </form>
     </div>
