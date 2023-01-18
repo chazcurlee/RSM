@@ -1,7 +1,10 @@
 const mongoose = require("mongoose")
+require('dotenv').config() 
+
+let dbUrl = process.env.NODE_ENV === 'production' ? process.env.MONGODB_URI : 'mongodb://127.0.0.1:27017/atl-brew-db'
 
 mongoose
-    .connect('mongodb://127.0.0.1:27017/brewDatabase')
+    .connect(dbUrl)
     .then(() => {
         console.log("Connected to MongoDB")
     })
