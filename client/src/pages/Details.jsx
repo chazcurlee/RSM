@@ -47,7 +47,7 @@ const Details = () => {
     getBrewery();
 
     const getReviews = async () => {
-      let rev = await axios.get(`http://localhost:3001/review/${brewery.id}`);
+      let rev = await axios.get(`/api/review/${brewery.id}`);
       setReviews(rev.data);
     };
     getReviews();

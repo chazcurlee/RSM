@@ -6,7 +6,7 @@ const ReviewForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let post = await axios.post(`http://localhost:3001/review`, {
+    let post = await axios.post(`/api/review`, {
       brewId: props.brewery.id,
       user: newReview.user,
       title: newReview.title,

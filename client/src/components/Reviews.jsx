@@ -26,7 +26,7 @@ const Reviews = ({
   useEffect(() => {}, [open]);
 
   const handleDelete = async (id) => {
-    let dlte = await axios.delete(`http://localhost:3001/review/${details}`);
+    let dlte = await axios.delete(`/api/review/${details}`);
     setToggle(!toggle);
     setToggle(!toggle);
   };
@@ -50,7 +50,7 @@ const Reviews = ({
   const handleOpen = async (e) => {
     let id = e.target.name;
     setDetails(id);
-    let rev = await axios.get(`http://localhost:3001/review/single/${id}`);
+    let rev = await axios.get(`/api/review/single/${id}`);
     setEditReview(rev.data);
     setOpen(true);
     console.log(editReview);
@@ -101,7 +101,7 @@ const Reviews = ({
 
   const handleSubmit = async () => {
     console.log(details, editReview);
-    let post = await axios.put(`http://localhost:3001/review/${details}`, {
+    let post = await axios.put(`/api/review/${details}`, {
       brewId: brewery.id,
       user: editReview.user,
       title: editReview.title,
@@ -110,8 +110,6 @@ const Reviews = ({
     console.log(post);
     handleClose();
   };
-
-  //63c76b3a3e800409cc078b83
 
   return toggle ? (
     <div className={`reviews-container`}>
