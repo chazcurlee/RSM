@@ -48,7 +48,6 @@
   font-size: 3em;
   justify-self: left;
   align-self: flex-end;
-  /* padding-bottom: 5px; */
 }
 
 .browse {
@@ -89,7 +88,7 @@
   grid-column-start: span 12;
   border-bottom: solid 1px;
   border-style: double;
-  /* background-color: #65666a; */
+
   height: 1px;
 }
 

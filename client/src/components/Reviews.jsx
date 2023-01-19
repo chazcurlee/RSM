@@ -28,6 +28,7 @@ const Reviews = ({
 
   const handleDelete = async (id) => {
     let dlte = await axios.delete(`/api/review/${details}`);
+    console.log(dlte);
     setDeleteToggle(false);
     setToggle(!toggle);
     setToggle(!toggle);

@@ -4,9 +4,6 @@ import Header from './components/Header'
 
 import Landing from './pages/Landing';
 import List from './pages/List'
-import SignUp from './pages/SignUp'
-import Login from './pages/Login'
-import Top10 from './components/Reviews'
 import Details from './pages/Details'
 import Footer from './components/Footer';
 import { useEffect, useState } from 'react';
@@ -14,9 +11,11 @@ import axios from 'axios';
 
 function App() {
 
+  // State used to store Atlanta results from OpenBrewery API
   const [brew, setBrew] = useState([]);
 
   useEffect(() => {
+    // Making call to OpenBrewery to return all Atlanta Breweries and setting in 'brew' state
     const getBrew = async () => {
       let newBrew = await axios.get(
         "https://api.openbrewerydb.org/breweries?by_city=atlanta"
@@ -34,9 +33,6 @@ function App() {
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/list' element={<List brew={brew}/>} />
-        <Route path='/signup' element={<SignUp />} />
-        <Route path='/login' element={<Login />} />
-        <Route path='/top10' element={<Top10 />} />
         <Route path='/list/:name/:id/:lati/:long' element={<Details />} />
       </Routes>
       <Footer />

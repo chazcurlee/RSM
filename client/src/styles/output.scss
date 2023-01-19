@@ -15,7 +15,6 @@ body {
 }
 
 .main-bg-color {
-  /* background-color: rgb(206, 206, 206); */
   background-image: linear-gradient(#01a647, #0090d1);
   height: 100%;
 }
@@ -377,18 +376,6 @@ body {
 @media only screen and (min-width: 1224px) {
   /* Styles */
 }
-/* Smartphones (landscape) ----------- */
-@media only screen and (min-width: 321px) {
-  html,
-  body {
-    width: 100vw;
-  }
-  html .landing-container,
-  body .landing-container {
-    width: 100vw;
-    max-width: 100vw;
-  }
-}
 /* Smartphones (portrait) ----------- */
 @media only screen and (max-width: 425px) {
   html,
@@ -508,7 +495,6 @@ body {
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
   /* Styles */
 }
-/* iPads (portrait) ----------- */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
   /* Styles */
 }

@@ -4,8 +4,6 @@ import TextField from "@mui/material/TextField";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
-import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import "../styles/ReviewForm.css";
 
@@ -13,7 +11,8 @@ const ReviewForm = (props) => {
   const [newReview, setNewReview] = useState({});
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
+    // Ensures that all fields are filled before submiting
     if (newReview.title && newReview.user && newReview.body) {
       let post = await axios.post(`/api/review`, {
         brewId: props.brewery.id,
@@ -21,8 +20,11 @@ const ReviewForm = (props) => {
         title: newReview.title,
         body: newReview.body,
       });
+      console.log(post);
+      // Closes and rerenders page.. or it should at least
       props.setLeaveReview(false);
       props.setRerend(!props.rerend);
+      // Guard else, if any required fields are not filled, alert user
     } else {
       if (!newReview.title) {
         alert("Please enter a title");
@@ -36,6 +38,7 @@ const ReviewForm = (props) => {
     }
   };
 
+  // Takes changes in textfield in order to create object to submit to db
   const handleChange = (e) => {
     let entry = e.target.value;
 

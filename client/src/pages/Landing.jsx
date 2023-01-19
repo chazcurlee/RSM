@@ -6,7 +6,7 @@ const Landing = () => {
       className={`landing-container height-100prcnt grid-display grid-col-full grid-row-auto`}
     >
       <div
-        className={`text-title-container   grid-col-start-2 grid-display grid-row-2 width-auto margin-bottom`}
+        className={`text-title-container grid-col-start-2 grid-display grid-row-2 width-auto margin-bottom`}
       >
         <div className="long-bottom flex-display flex-col justify-center grid-row-start-1">
           <p
@@ -15,9 +15,9 @@ const Landing = () => {
             Welcome to ATL Brew!
           </p>
         </div>
-        <div className=" text-body-container grid-row-start-2 grid-display grid-col-2">
+        <div className="text-body-container grid-row-start-2 grid-display grid-col-2">
           <p
-            className={` padding-full height-100prcnt box-shadow background-green grid-row-start-2 text-align-center margin-right text-body`}
+            className={`padding-full height-100prcnt box-shadow background-green grid-row-start-2 text-align-center margin-right text-body`}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu
@@ -44,7 +44,7 @@ const Landing = () => {
             malesuada bibendum arcu vitae.
           </p>
           <p
-            className={` padding-full height-100prcnt  box-shadow background-blue grid-row-start-2 text-align-center text-body`}
+            className={`padding-full height-100prcnt box-shadow background-blue grid-row-start-2 text-align-center text-body`}
           >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Eu
@@ -71,19 +71,13 @@ const Landing = () => {
             malesuada bibendum arcu vitae.
           </p>
         </div>
-
-        {/* <img src={beer1} className={`right-img img`}></img> */}
       </div>
       <div
         className={`grid-col-start-2 flex-display flex-row justify-center align-center margin-full`}
-      >
-        {/* <img src={beer2} className={`left-img img`}></img> */}
-      </div>
+      ></div>
       <div
         className={`grid-col-start-2 flex-display flex-row justify-center align-center margin-bottom`}
-      >
-        {/* <img src={beer3} className={`right-img img`}></img> */}
-      </div>
+      ></div>
     </div>
   );
 };

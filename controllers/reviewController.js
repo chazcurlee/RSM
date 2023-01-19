@@ -8,14 +8,12 @@ const getReview = async (req, res) => {
 
 const postReview = async (req, res) => {
     let review = req.body
-    // console.log(review, "This is the console log")
     Review.create(review)
     res.json(review)
 }
 
 const deleteReview = async (req, res) => {
     await Review.findByIdAndDelete(req.params.id)
-    console.log(`Review deleted. ID: ${req.params.id}`)
     res.send("Delete affirmed")
 }
 

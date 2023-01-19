@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
   const navigate = useNavigate("");
 
+  // Allows for navigation based on tab clicked
   const handleClick = (e) => {
     let navPoint = e.target.id;
     navigate(`${navPoint}`);

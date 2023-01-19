@@ -7,16 +7,23 @@ import Brewery from "../components/Brewery";
 import Reviews from "../components/Reviews";
 
 const Details = () => {
+  // Atlanta Breweries Object State
   let [brewery, setBrewery] = useState([]);
+  // Mongodb Reviews Object State
   let [reviews, setReviews] = useState([]);
+  // Used through out the application to ensure rerenders happen
   const [toggle, setToggle] = useState(false);
+  // Used through out the application to ensure rerenders happen
   const [rerend, setRerend] = useState(false);
 
   let { name, id, lati, long } = useParams();
   const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
 
+  // Ensuring that longitude and latitude are Numbers so Google Maps API can use them appropriately
   let longi = parseFloat(long);
   let ltit = parseFloat(lati);
+
+  // Building full address from OpenBrewery API data
   let address =
     brewery.street +
     " " +
@@ -26,6 +33,7 @@ const Details = () => {
     " " +
     brewery.postal_code;
 
+  // giving default settings and passing lat/lng for Google Maps API
   const defaultProps = {
     center: {
       lat: ltit,
@@ -34,6 +42,7 @@ const Details = () => {
     zoom: 11,
   };
 
+  // If no address available, indicate as such
   if (brewery.street === null) {
     address = "Not Available";
   }
@@ -48,7 +57,7 @@ const Details = () => {
     };
     getBrewery();
 
-    // Pull reviews from db
+    // Pull reviews from mongodb
     const getReviews = async () => {
       let rev = await axios.get(`/api/review/${id}`);
       setReviews(rev.data);
@@ -56,11 +65,13 @@ const Details = () => {
     getReviews();
   }, [toggle, rerend]);
 
+  // Ensuring that the window is scrolled to the top when navigating. Looking to create a better way to do this as this gets tedious on rerenders
   window.scrollTo({
     top: 0,
     behavior: "smooth",
   });
 
+  //If coordinates are not available, guard ternary to show page without Google Maps
   return lati === "null" ? (
     <div>
       <div
