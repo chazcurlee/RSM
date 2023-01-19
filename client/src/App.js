@@ -9,7 +9,8 @@ import Login from './pages/Login'
 import Top10 from './components/Reviews'
 import Details from './pages/Details'
 import Footer from './components/Footer';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 function App() {
 
