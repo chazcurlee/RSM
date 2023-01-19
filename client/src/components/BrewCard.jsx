@@ -62,9 +62,11 @@ const BrewCard = ({ beer }) => {
       {
         <div
           className={`brew-name flex-display flex-row background-grey-clear brew-item marginless grid-row-start-1 flex-center `}
-          onClick={() => handleClick(beer.name)}
         >
-          <h6 className="marginless background-grey title-divide">
+          <h6
+            className="marginless background-grey pointer title-divide"
+            onClick={() => handleClick(beer.name)}
+          >
             {beer.name}
           </h6>
           {
