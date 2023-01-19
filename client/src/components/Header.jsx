@@ -22,16 +22,16 @@ const Header = () => {
         id={`/`}
         onClick={handleClick}
       >
-        Atl Brew
+        <h4 className="title-text">Atl Brew</h4>
       </div>
       <div className="tag ">
         <h1 className="tag-text">"All Atlanta Ales!"</h1>
       </div>
       <div
-        className={`grid-row-start-1 head home flex-display justify-center border-green`}
+        className={`grid-row-start-1 head home flex-display justify-center `}
       >
         {" "}
-        <div id={`/`} className={`button border-green`} onClick={handleClick}>
+        <div id={`/`} className={`button `} onClick={handleClick}>
           Home{" "}
         </div>
       </div>
@@ -39,11 +39,7 @@ const Header = () => {
         className={`browse grid-row-start-1 head flex-display justify-center`}
       >
         {" "}
-        <div
-          id={`/list`}
-          className={`button border-green`}
-          onClick={handleClick}
-        >
+        <div id={`/list`} className={`button `} onClick={handleClick}>
           Browse{" "}
         </div>
       </div>
