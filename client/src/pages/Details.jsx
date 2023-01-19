@@ -76,7 +76,7 @@ const Details = () => {
             {brewery.website_url}
           </a>
         </h3>
-        <div className="grid-col-start-2">
+        <div className="grid-col-start-2 flex-display flex-column   border-top ">
           <Reviews
             brewery={brewery}
             reviews={reviews}

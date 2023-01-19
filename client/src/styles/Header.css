@@ -21,6 +21,10 @@
   align-items: center;
 }
 
+.review-button {
+  padding: 0;
+}
+
 .head:hover {
   animation: tag-hover-forward 0.1s linear;
   animation-fill-mode: forwards;
@@ -51,6 +55,14 @@
   grid-column-start: 10;
   justify-self: right;
   height: 2em;
+}
+
+.tag {
+  grid-column: 4 / 8;
+}
+
+.tag-text {
+  margin: 10px 0 0 0;
 }
 
 .button {

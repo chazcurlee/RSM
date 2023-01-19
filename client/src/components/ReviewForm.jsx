@@ -95,6 +95,8 @@ const ReviewForm = (props) => {
             onChange={handleChange}
             required={true}
             rows={5}
+            multiline
+            minRows={3}
           />
         </DialogContent>
         <DialogActions>

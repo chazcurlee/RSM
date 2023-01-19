@@ -24,6 +24,9 @@ const Header = () => {
       >
         Atl Brew
       </div>
+      <div className="tag ">
+        <h1 className="tag-text">"All Atlanta Ales!"</h1>
+      </div>
       <div
         className={`grid-row-start-1 head home flex-display justify-center border-green`}
       >

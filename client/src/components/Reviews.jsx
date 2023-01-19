@@ -119,7 +119,9 @@ const Reviews = ({
   };
 
   return toggle ? (
-    <div className={`reviews-container grid-display grid-col-full`}>
+    <div
+      className={`reviews-container grid-display grid-col-full justify-center-self align-center-self`}
+    >
       <button
         className=" grid-col-start-2 justify-center-self align-center-self margin-top"
         onClick={handleNewReview}
@@ -226,7 +228,7 @@ const Reviews = ({
     <div
       className={`reviews-container grid-display grid-col-full grid-row-auto`}
     >
-      <div className="grid-col-start-2">
+      <div className="grid-col-start-2 align-center-self justify-center-self flex-display flex-column align-center justify-center">
         <Button
           sx={{
             backgroundColor: "#65666a",
