@@ -14,14 +14,26 @@ const ReviewForm = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let post = await axios.post(`/api/review`, {
-      brewId: props.brewery.id,
-      user: newReview.user,
-      title: newReview.title,
-      body: newReview.body,
-    });
-
-    props.setRerend(!props.rerend);
+    if (newReview.title && newReview.user && newReview.body) {
+      let post = await axios.post(`/api/review`, {
+        brewId: props.brewery.id,
+        user: newReview.user,
+        title: newReview.title,
+        body: newReview.body,
+      });
+      props.setLeaveReview(false);
+      props.setRerend(!props.rerend);
+    } else {
+      if (!newReview.title) {
+        alert("Please enter a title");
+      }
+      if (!newReview.user) {
+        alert("Please enter your name");
+      }
+      if (!newReview.body) {
+        alert("Please enter a review");
+      }
+    }
   };
 
   const handleChange = (e) => {

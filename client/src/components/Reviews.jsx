@@ -28,6 +28,7 @@ const Reviews = ({
 
   const handleDelete = async (id) => {
     let dlte = await axios.delete(`/api/review/${details}`);
+    setDeleteToggle(false);
     setToggle(!toggle);
     setToggle(!toggle);
   };
@@ -133,6 +134,7 @@ const Reviews = ({
         setRerend={setRerend}
         brewery={brewery}
         leaveReview={leaveReview}
+        setLeaveReview={setLeaveReview}
         handleNewReview={handleNewReview}
         handleCloseReview={handleCloseReview}
       />
