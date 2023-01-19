@@ -11,9 +11,10 @@ const BrewCard = ({ beer }) => {
 
   let long = beer.longitude;
   let lati = beer.latitude;
+  let id = beer.id;
 
   const handleClick = (name) => {
-    navigate(`${name}/${lati}/${long}`);
+    navigate(`${name}/${id}/${lati}/${long}`);
   };
 
   if (beer.street === null) {

@@ -12,8 +12,9 @@ const Details = () => {
   const [toggle, setToggle] = useState(false);
   const [rerend, setRerend] = useState(false);
 
-  let { name, lati, long } = useParams();
+  let { name, id, lati, long } = useParams();
   const API_KEY = process.env.REACT_APP_GOOGLE_MAP_API_KEY;
+
   let longi = parseFloat(long);
   let ltit = parseFloat(lati);
   let address =
@@ -47,7 +48,7 @@ const Details = () => {
     getBrewery();
 
     const getReviews = async () => {
-      let rev = await axios.get(`/api/review/${brewery.id}`);
+      let rev = await axios.get(`/api/review/${id}`);
       setReviews(rev.data);
     };
     getReviews();

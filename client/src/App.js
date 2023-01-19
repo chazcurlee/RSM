@@ -37,7 +37,7 @@ function App() {
         <Route path='/signup' element={<SignUp />} />
         <Route path='/login' element={<Login />} />
         <Route path='/top10' element={<Top10 />} />
-        <Route path='/list/:name/:lati/:long' element={<Details />} />
+        <Route path='/list/:name/:id/:lati/:long' element={<Details />} />
       </Routes>
       <Footer />
     </div>
