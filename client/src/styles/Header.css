@@ -28,29 +28,29 @@
 }
 
 .logo {
-  grid-column-start: 3;
+  grid-column-start: 1;
+  max-height: 100%;
+  justify-self: right;
+}
+
+.home {
+  grid-column-start: 9;
+  justify-self: right;
+  height: 2em;
 }
 
 .title {
-  grid-column-start: 4;
-  font-size: 2em;
+  grid-column-start: 2;
+  font-size: 3em;
+  justify-self: left;
+  align-self: flex-end;
+  /* padding-bottom: 5px; */
 }
 
 .browse {
-  grid-column-start: 7;
+  grid-column-start: 10;
   justify-self: right;
   height: 2em;
-}
-
-.top-ten {
-  grid-row-start: 1;
-  grid-column-start: 8;
-  justify-self: right;
-  height: 2em;
-}
-
-.divide2 {
-  grid-column-start: 8;
 }
 
 .button {
@@ -65,6 +65,7 @@
 
 .button:hover {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  background-color: #01a647;
 }
 
 .filled-button {

@@ -56,7 +56,10 @@ const Details = () => {
     getReviews();
   }, [toggle, rerend]);
 
-  console.log(reviews);
+  window.scrollTo({
+    top: 0,
+    behavior: "smooth",
+  });
 
   return lati === "null" ? (
     <div>
@@ -66,10 +69,12 @@ const Details = () => {
         <h1 className="grid-col-start-2 grid-row-start-auto">{brewery.name}</h1>
         <h3 className="grid-col-start-2 grid-row-start-auto">{address}</h3>
         <h3 className="grid-col-start-2 grid-row-start-auto">
-          {brewery.phone}
+          Phone: {brewery.phone}
         </h3>
         <h3 className="grid-col-start-2 grid-row-start-auto">
-          {brewery.website_url}
+          <a href={`${brewery.website_url}`} target="_blank">
+            {brewery.website_url}
+          </a>
         </h3>
         <div className="grid-col-start-2">
           <Reviews
@@ -88,16 +93,22 @@ const Details = () => {
       <div
         className={`main-bg-color details-container grid-display grid-col-2 justify-center align-center height-100prcnt`}
       >
-        <div className="justify-center-self justify-center align-center-self align-center">
-          <h1 className=" grid-col-start-1 grid-row-start-1">{brewery.name}</h1>
+        <div className="justify-center-self justify-center align-center-self align-center ">
+          <h1 className=" grid-col-start-1 grid-row-start-1 underline ">
+            {brewery.name}
+          </h1>
           <h3 className="grid-col-start-1 grid-row-start-1">{address}</h3>
-          <h3 className="grid-col-start-1 grid-row-start-1">{brewery.phone}</h3>
           <h3 className="grid-col-start-1 grid-row-start-1">
-            {brewery.website_url}
+            Phone: {brewery.phone}
+          </h3>
+          <h3 className="grid-col-start-1 grid-row-start-1">
+            <a href={`${brewery.website_url}`} target="_blank">
+              {brewery.website_url}
+            </a>
           </h3>
         </div>
         <div
-          className={`map-container grid-row-start-1 grid-col-start-2 align-center-self justify-center-self margin-bottom margin-top`}
+          className={`map-container grid-row-start-1 grid-col-start-2 align-center-self justify-center-self margin-bottom margin-top `}
         >
           <GoogleMapReact
             options={{

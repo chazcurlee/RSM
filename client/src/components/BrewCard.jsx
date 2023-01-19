@@ -7,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 const BrewCard = ({ beer }) => {
   let navigate = useNavigate("");
   let [hidden, setHidden] = useState("hidden");
+  let [mouseOn, setMouseOn] = useState(false);
   let upType = beer.brewery_type.toUpperCase();
   let address =
     beer.street + " " + beer.city + ", " + beer.state + " " + beer.postal_code;
@@ -19,22 +20,37 @@ const BrewCard = ({ beer }) => {
     navigate(`${name}/${id}/${lati}/${long}`);
   };
 
-  useEffect(() => {});
-
-  const handleMouseOver = () => {
-    const unhide = () => {
-      setHidden("");
-    };
-    setTimeout(unhide, 1000);
-  };
-
-  const handleMouseAway = () => {
-    setHidden("hidden");
-  };
+  useEffect(() => {
+    if (!mouseOn) {
+      setHidden("hidden");
+    }
+  }, [mouseOn]);
 
   if (beer.street === null) {
     address = "Not Available";
   }
+
+  const handleMouseAway = () => {
+    // const unhide = () => {
+    setHidden("hidden");
+    setMouseOn(false);
+    // };
+
+    // setTimeout(unhide, 800);
+  };
+
+  const handleMouseBg = () => {
+    setHidden("hidden");
+  };
+
+  const handleMouseOver = () => {
+    // const unhide = () => {
+    setHidden("");
+    setMouseOn(true);
+    // };
+
+    // setTimeout(unhide, 800);
+  };
 
   return (
     // <div className="brew-con-over">
@@ -45,13 +61,15 @@ const BrewCard = ({ beer }) => {
     >
       {
         <div
-          className={`brew-name flex-display flex-row background-grey-clear brew-item marginless grid-row-start-1 flex-center`}
+          className={`brew-name flex-display flex-row background-grey-clear brew-item marginless grid-row-start-1 flex-center `}
           onClick={() => handleClick(beer.name)}
         >
-          {beer.name}
+          <h6 className="marginless background-grey title-divide">
+            {beer.name}
+          </h6>
           {
-            <div className={`brew-item1   flex-center  marginless`}>
-              <p className={`under-kill ${hidden}`}>{upType} </p>{" "}
+            <div className={`brew-item1  ${hidden} flex-center  marginless`}>
+              <p className={`under-kill `}>{upType} </p>{" "}
             </div>
           }
           {

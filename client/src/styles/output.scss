@@ -275,6 +275,22 @@ body {
   border-color: #65666a;
 }
 
+.border-bottom {
+  border-bottom: solid 1px;
+}
+
+.border-top {
+  border-top: solid 1px;
+}
+
+.border-left {
+  border-left: solid 1px;
+}
+
+.border-right {
+  border-right: solid 1px;
+}
+
 /* Box Shadow */
 .box-shadow {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -325,6 +341,7 @@ body {
 @keyframes list-grow {
   to {
     background-color: rgba(101, 102, 106, 0.75);
+    visibility: visible;
   }
 }
 @keyframes pic-move {
@@ -338,6 +355,14 @@ body {
   }
   to {
     background-size: 100%;
+  }
+}
+@keyframes box-shadow-grow {
+  from {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1), 0 6px 20px 0 rgba(0, 0, 0, 0.09);
+  }
+  to {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   }
 }
 

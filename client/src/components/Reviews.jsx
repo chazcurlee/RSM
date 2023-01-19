@@ -35,7 +35,7 @@ const Reviews = ({
   const deleteOpen = (e) => {
     let id = e.target.name;
     setDetails(id);
-    console.log(details);
+
     setDeleteToggle(true);
   };
 
@@ -54,7 +54,6 @@ const Reviews = ({
     let rev = await axios.get(`/api/review/single/${id}`);
     setEditReview(rev.data);
     setOpen(true);
-    console.log(editReview);
   };
 
   const handleNewReview = () => {
@@ -109,21 +108,20 @@ const Reviews = ({
   };
 
   const handleSubmit = async () => {
-    console.log(details, editReview);
     let post = await axios.put(`/api/review/${details}`, {
       brewId: brewery.id,
       user: editReview.user,
       title: editReview.title,
       body: editReview.body,
     });
-    console.log(post);
+
     handleClose();
   };
 
   return toggle ? (
     <div className={`reviews-container grid-display grid-col-full`}>
       <button
-        className="new-review-button grid-col-start-2 justify-center-self align-center-self"
+        className=" grid-col-start-2 justify-center-self align-center-self margin-top"
         onClick={handleNewReview}
       >
         Leave a Review
@@ -137,24 +135,33 @@ const Reviews = ({
         handleCloseReview={handleCloseReview}
       />
       {reviews.map((review) => (
-        <div className="grid-col-start-2 grey-bg-cthru " key={review._id}>
-          <h2>{review.title}</h2>
-          <h3>{review.user}</h3>
-          <p>{review.body}</p>
-          <button
-            name={`${review._id}`}
-            className="margin-full new-review-button"
-            onClick={handleOpen}
-          >
-            Edit
-          </button>
-          <button
-            name={`${review._id}`}
-            className="new-review-button"
-            onClick={deleteOpen}
-          >
-            Delete
-          </button>
+        <div
+          className="grid-col-start-2 grey-bg-cthru grid-display grid-col-full grid-row-auto box-shadow"
+          key={review._id}
+        >
+          <div className="grid-col-start-2 grid-display grid-row-2">
+            <h2 className="grid-row-start-1 border-bottom  review-title ">
+              {review.title}
+            </h2>
+            <h4 className="grid-row-start-2  user">User: {review.user}</h4>
+          </div>
+          <p className="review-body grid-col-start-2  ">{review.body}</p>
+          <div>
+            <button
+              name={`${review._id}`}
+              className="marginless new-review-button "
+              onClick={handleOpen}
+            >
+              Edit
+            </button>
+            <button
+              name={`${review._id}`}
+              className="new-review-button "
+              onClick={deleteOpen}
+            >
+              Delete
+            </button>
+          </div>
           <Dialog open={open} onClose={handleClose}>
             <DialogContent>
               <TextField

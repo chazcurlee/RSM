@@ -20,7 +20,6 @@ const ReviewForm = (props) => {
       title: newReview.title,
       body: newReview.body,
     });
-    console.log(post);
 
     props.setRerend(!props.rerend);
   };
@@ -56,7 +55,6 @@ const ReviewForm = (props) => {
         console.log("Review error");
         break;
     }
-    // console.log(newReview);
   };
 
   return (

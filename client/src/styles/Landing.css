@@ -27,19 +27,6 @@
   /* width: 20vw; */
 }
 
-.left-text {
-  text-align: left;
-  grid-column-start: 1;
-  align-self: center;
-}
-
-.right-text {
-  text-align: right;
-  grid-column-start: 2;
-  align-self: flex-start;
-  /* justify-self: center; */
-}
-
 .img {
   justify-self: center;
   align-self: center;
@@ -60,4 +47,8 @@
 
 .left-img {
   grid-column-start: 1;
+}
+
+.text-body {
+  line-height: 1.5;
 }

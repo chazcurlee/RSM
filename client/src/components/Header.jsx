@@ -1,4 +1,5 @@
 import "../styles/Header.css";
+import atl from "../assets/silhouette-of-atlanta-skyline.jpeg";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -12,17 +13,25 @@ const Header = () => {
     <div
       className={`head-container grid-col-auto sticky grid-display height-auto width-full z1`}
     >
+      <img
+        src={atl}
+        className={`logo head1 flex-display  grid-row-start-1`}
+      ></img>
       <div
-        className={`logo head1 flex-display justify-center grid-row-start-1`}
-      ></div>
-      <div
-        className={`title grid-row-start-1 head1 flex-display justify-center underline`}
+        className={`title grid-row-start-1 head1 flex-display justify-center underline padding-left`}
         id={`/`}
         onClick={handleClick}
       >
         Atl Brew
       </div>
-      {/* <div className={`head-divider divide1`}></div> */}
+      <div
+        className={`grid-row-start-1 head home flex-display justify-center border-green`}
+      >
+        {" "}
+        <div id={`/`} className={`button border-green`} onClick={handleClick}>
+          Home{" "}
+        </div>
+      </div>
       <div
         className={`browse grid-row-start-1 head flex-display justify-center`}
       >
@@ -38,7 +47,6 @@ const Header = () => {
       <div
         className={`top-ten grid-row-start-1 head flex-display justify-center`}
       ></div>
-      {/* <div className={`head-divider divide2`}></div> */}
 
       <div
         className={`nav-icon-container border-grey flex-display flex-row justify-center`}
