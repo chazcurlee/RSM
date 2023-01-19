@@ -23,7 +23,7 @@ const Header = () => {
         id={`/`}
         onClick={handleClick}
       >
-        <h4 className="title-text">Atl Brew</h4>
+        <h4 className="title-text marginless">Atl Brew</h4>
       </div>
       <div className="tag ">
         <h1 className="tag-text">"All Atlanta Ales!"</h1>
