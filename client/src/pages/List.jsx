@@ -5,20 +5,7 @@ import BrewCard from "../components/BrewCard";
 
 // data-types: brewery_type, city, country, id, name, phone, latitude, longitude, postal_code, state, street, website_url
 
-const List = () => {
-  const [brew, setBrew] = useState([]);
-
-  useEffect(() => {
-    const getBrew = async () => {
-      let newBrew = await axios.get(
-        "https://api.openbrewerydb.org/breweries?by_city=atlanta"
-      );
-
-      setBrew(newBrew.data);
-    };
-    getBrew();
-  }, []);
-
+const List = ({ brew }) => {
   return brew.length > 1 ? (
     <div className={`main-bg-color list-container`}>
       {brew.map((beer) => {
