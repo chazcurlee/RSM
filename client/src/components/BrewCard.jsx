@@ -1,10 +1,12 @@
 import "../styles/BrewCard.css";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 // data-types: brewery_type, city, country, id, name, phone, latitude, longitude, postal_code, state, street, website_url
 
 const BrewCard = ({ beer }) => {
   let navigate = useNavigate("");
+  let [hidden, setHidden] = useState("hidden");
   let upType = beer.brewery_type.toUpperCase();
   let address =
     beer.street + " " + beer.city + ", " + beer.state + " " + beer.postal_code;
@@ -17,38 +19,62 @@ const BrewCard = ({ beer }) => {
     navigate(`${name}/${id}/${lati}/${long}`);
   };
 
+  useEffect(() => {});
+
+  const handleMouseOver = () => {
+    const unhide = () => {
+      setHidden("");
+    };
+    setTimeout(unhide, 1000);
+  };
+
+  const handleMouseAway = () => {
+    setHidden("hidden");
+  };
+
   if (beer.street === null) {
     address = "Not Available";
   }
 
   return (
-    <div className={`brewcard-container`}>
+    // <div className="brew-con-over">
+    <div
+      className={`brewcard-container grid-display  justify-center align-center justify-center-self align-center-self box-shadow background-beer`}
+      onMouseEnter={handleMouseOver}
+      onMouseLeave={handleMouseAway}
+    >
       {
-        <h1
-          className={`brew-name brew-item`}
+        <div
+          className={`brew-name flex-display flex-row background-grey-clear brew-item marginless grid-row-start-1 flex-center`}
           onClick={() => handleClick(beer.name)}
         >
           {beer.name}
-        </h1>
-      }
-      {
-        <h4 className={`brew-item`}>
-          Type <p className={`under-kill`}>{upType} </p>{" "}
-        </h4>
-      }
-      {
-        <h4 className={`brew-item`}>
-          Address <p className={`under-kill`}>{address}</p>
-        </h4>
-      }
-      {
-        <h4 className={`brew-item`}>
-          Website{" "}
-          <p className={`under-kill`}>
-            {" "}
-            <a href={beer.website_url}>{beer.website_url}</a>
-          </p>
-        </h4>
+          {
+            <div className={`brew-item1   flex-center  marginless`}>
+              <p className={`under-kill ${hidden}`}>{upType} </p>{" "}
+            </div>
+          }
+          {
+            <div className={`brew-item2  ${hidden}  flex-center  marginless`}>
+              <p className={`under-kill`}>{address}</p>
+            </div>
+          }
+          {
+            <div className={`brew-item3  ${hidden}  flex-center  marginless`}>
+              {" "}
+              <p className={`under-kill span`}>
+                {" "}
+                <a
+                  className="under-kill"
+                  href={beer.website_url}
+                  target="_blank"
+                >
+                  {beer.website_url}
+                </a>
+              </p>
+            </div>
+          }
+        </div>
       }
     </div>
   );

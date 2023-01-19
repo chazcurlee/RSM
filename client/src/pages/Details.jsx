@@ -39,6 +39,7 @@ const Details = () => {
   }
 
   useEffect(() => {
+    // Get info from OpenBrewery API
     const getBrewery = async () => {
       let select = await axios.get(
         `https://api.openbrewerydb.org/breweries?by_name=${name}`
@@ -47,6 +48,7 @@ const Details = () => {
     };
     getBrewery();
 
+    // Pull reviews from db
     const getReviews = async () => {
       let rev = await axios.get(`/api/review/${id}`);
       setReviews(rev.data);
@@ -58,12 +60,18 @@ const Details = () => {
 
   return lati === "null" ? (
     <div>
-      <div className={`main-bg-color details-container-no-map`}>
-        <h1 className="details-item-no-map">{brewery.name}</h1>
-        <h3 className="details-item-no-map">{address}</h3>
-        <h3 className="details-item-no-map">{brewery.phone}</h3>
-        <h3 className="details-item-no-map">{brewery.website_url}</h3>
-        <div>
+      <div
+        className={`main-bg-color details-container-no-map grid-display grid-col-full justify-center align-center height-100vh`}
+      >
+        <h1 className="grid-col-start-2 grid-row-start-auto">{brewery.name}</h1>
+        <h3 className="grid-col-start-2 grid-row-start-auto">{address}</h3>
+        <h3 className="grid-col-start-2 grid-row-start-auto">
+          {brewery.phone}
+        </h3>
+        <h3 className="grid-col-start-2 grid-row-start-auto">
+          {brewery.website_url}
+        </h3>
+        <div className="grid-col-start-2">
           <Reviews
             brewery={brewery}
             reviews={reviews}
@@ -77,14 +85,20 @@ const Details = () => {
     </div>
   ) : (
     <div>
-      <div className={`main-bg-color details-container`}>
-        <div>
-          <h1 className="details-item">{brewery.name}</h1>
-          <h3 className="details-item">{address}</h3>
-          <h3 className="details-item">{brewery.phone}</h3>
-          <h3 className="details-item">{brewery.website_url}</h3>
+      <div
+        className={`main-bg-color details-container grid-display grid-col-2 justify-center align-center height-100prcnt`}
+      >
+        <div className="justify-center-self justify-center align-center-self align-center">
+          <h1 className=" grid-col-start-1 grid-row-start-1">{brewery.name}</h1>
+          <h3 className="grid-col-start-1 grid-row-start-1">{address}</h3>
+          <h3 className="grid-col-start-1 grid-row-start-1">{brewery.phone}</h3>
+          <h3 className="grid-col-start-1 grid-row-start-1">
+            {brewery.website_url}
+          </h3>
         </div>
-        <div className={`map-container`}>
+        <div
+          className={`map-container grid-row-start-1 grid-col-start-2 align-center-self justify-center-self margin-bottom margin-top`}
+        >
           <GoogleMapReact
             options={{
               gestureHandling: "greedy",

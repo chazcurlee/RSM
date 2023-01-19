@@ -19,6 +19,7 @@ const Reviews = ({
   setRerend,
 }) => {
   const [open, setOpen] = useState(false);
+  const [leaveReview, setLeaveReview] = useState(false);
   const [editReview, setEditReview] = useState({});
   let [details, setDetails] = useState();
   const [deleteToggle, setDeleteToggle] = useState(false);
@@ -54,6 +55,14 @@ const Reviews = ({
     setEditReview(rev.data);
     setOpen(true);
     console.log(editReview);
+  };
+
+  const handleNewReview = () => {
+    setLeaveReview(true);
+  };
+
+  const handleCloseReview = () => {
+    setLeaveReview(false);
   };
 
   const handleClose = () => {
@@ -112,23 +121,38 @@ const Reviews = ({
   };
 
   return toggle ? (
-    <div className={`reviews-container`}>
+    <div className={`reviews-container grid-display grid-col-full`}>
+      <button
+        className="new-review-button grid-col-start-2 justify-center-self align-center-self"
+        onClick={handleNewReview}
+      >
+        Leave a Review
+      </button>
       <ReviewForm
+        rerend={rerend}
+        setRerend={setRerend}
         brewery={brewery}
-        open={open}
-        setOpen={setOpen}
-        toggle={toggle}
-        setToggle={setToggle}
+        leaveReview={leaveReview}
+        handleNewReview={handleNewReview}
+        handleCloseReview={handleCloseReview}
       />
       {reviews.map((review) => (
-        <div key={review._id}>
+        <div className="grid-col-start-2 grey-bg-cthru " key={review._id}>
           <h2>{review.title}</h2>
           <h3>{review.user}</h3>
           <p>{review.body}</p>
-          <button name={`${review._id}`} onClick={handleOpen}>
+          <button
+            name={`${review._id}`}
+            className="margin-full new-review-button"
+            onClick={handleOpen}
+          >
             Edit
           </button>
-          <button name={`${review._id}`} onClick={deleteOpen}>
+          <button
+            name={`${review._id}`}
+            className="new-review-button"
+            onClick={deleteOpen}
+          >
             Delete
           </button>
           <Dialog open={open} onClose={handleClose}>
@@ -192,14 +216,27 @@ const Reviews = ({
       ))}
     </div>
   ) : (
-    <div className={`reviews-container`}>
-      <Button
-        onClick={() => {
-          setToggle(true);
-        }}
-      >
-        See Reviews
-      </Button>
+    <div
+      className={`reviews-container grid-display grid-col-full grid-row-auto`}
+    >
+      <div className="grid-col-start-2">
+        <Button
+          sx={{
+            backgroundColor: "#65666a",
+            color: "white",
+            borderRadius: "16px",
+            marginTop: "10px",
+            borderColor: "black",
+            boxShadow:
+              "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);",
+          }}
+          onClick={() => {
+            setToggle(true);
+          }}
+        >
+          See Reviews
+        </Button>
+      </div>
     </div>
   );
 };

@@ -1,5 +1,4 @@
 import "../styles/Header.css";
-import { RxCaretDown } from "react-icons/rx";
 import { useNavigate } from "react-router-dom";
 
 const Header = () => {
@@ -10,51 +9,40 @@ const Header = () => {
     navigate(`${navPoint}`);
   };
   return (
-    <div className={`head-container`}>
-      <div className={`logo head1`}></div>
-      <div className={`title head1`} id={`/`} onClick={handleClick}>
-        ATL Brew
+    <div
+      className={`head-container grid-col-auto sticky grid-display height-auto width-full z1`}
+    >
+      <div
+        className={`logo head1 flex-display justify-center grid-row-start-1`}
+      ></div>
+      <div
+        className={`title grid-row-start-1 head1 flex-display justify-center underline`}
+        id={`/`}
+        onClick={handleClick}
+      >
+        Atl Brew
       </div>
       {/* <div className={`head-divider divide1`}></div> */}
-      <div className={`browse head `}>
+      <div
+        className={`browse grid-row-start-1 head flex-display justify-center`}
+      >
         {" "}
         <div
           id={`/list`}
-          className={`button ghost-button`}
+          className={`button border-green`}
           onClick={handleClick}
         >
           Browse{" "}
         </div>
       </div>
-      <div className={`top-ten head `}>
-        <div
-          id={`/top10`}
-          className={`button filled-button`}
-          onClick={handleClick}
-        >
-          Top Picks
-        </div>
-      </div>
+      <div
+        className={`top-ten grid-row-start-1 head flex-display justify-center`}
+      ></div>
       {/* <div className={`head-divider divide2`}></div> */}
-      <div className={`sign-up head`}>
-        <div
-          id={`/signup`}
-          className={`button ghost-button2`}
-          onClick={handleClick}
-        >
-          Sign Up
-        </div>
-      </div>
-      <div className={`sign-in head`}>
-        <div
-          id={`/login`}
-          className={`button filled-button2`}
-          onClick={handleClick}
-        >
-          Sign In
-        </div>
-      </div>
-      <div className={`nav-icon-container`}></div>
+
+      <div
+        className={`nav-icon-container border-grey flex-display flex-row justify-center`}
+      ></div>
     </div>
   );
 };

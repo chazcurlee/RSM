@@ -1,0 +1,344 @@
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  font: "Ubuntu", sans-serif;
+  text-align: center;
+  scroll-behavior: smooth;
+}
+
+.main-bg-color {
+  /* background-color: rgb(206, 206, 206); */
+  background-image: linear-gradient(#01a647, #0090d1);
+  height: 100%;
+}
+
+/* Background Color */
+.background-blue {
+  background-color: #0090d1;
+}
+
+.background-green {
+  background-color: #01a647;
+}
+
+.background-grey {
+  background-color: #65666a;
+}
+
+.background-white {
+  background-color: white;
+}
+
+.background-beer {
+  background-image: url("../assets/Beer-flight.jpeg");
+}
+
+/* Height */
+.height-auto {
+  height: auto;
+}
+
+.height-25vh {
+  height: 25vh;
+}
+
+.height-50vh {
+  height: 50vh;
+}
+
+.height-100vh {
+  height: 100vh;
+}
+
+.height-100prcnt {
+  height: 100%;
+}
+
+/* Width */
+.width-auto {
+  width: auto;
+}
+
+.width-full {
+  width: 100vw;
+}
+
+.width-100prcnt {
+  width: 100%;
+}
+
+/* Positions */
+.sticky {
+  position: sticky;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.relative {
+  position: relative;
+}
+
+/* Z-Index */
+.z0 {
+  z-index: 0;
+}
+
+.z1 {
+  z-index: 1;
+}
+
+.z-1 {
+  z-index: -1;
+}
+
+/*Grid Combos */
+.grid-display {
+  display: grid;
+}
+
+.grid-col-full {
+  grid-template-columns: 20% 60% 20%;
+}
+
+.grid-col-auto {
+  grid-template-columns: auto;
+}
+
+.grid-row-auto {
+  grid-template-rows: auto;
+}
+
+.grid-col-2 {
+  grid-template-columns: 50% 50%;
+}
+
+.grid-row-2 {
+  grid-template-rows: 50% 50%;
+}
+
+.grid-col-start-1 {
+  grid-column-start: 1;
+}
+
+.grid-col-start-2 {
+  grid-column-start: 2;
+}
+
+.grid-row-start-1 {
+  grid-row-start: 1;
+}
+
+.grid-row-start-2 {
+  grid-row-start: 2;
+}
+
+.grid-row-start-auto {
+  grid-row-start: auto;
+}
+
+/* Flex */
+.flex-display {
+  display: flex;
+}
+
+.flex-row {
+  flex-direction: row;
+}
+
+.flex-column {
+  flex-direction: column;
+}
+
+/* Justify and Align */
+.justify-center {
+  justify-content: center;
+}
+
+.align-center {
+  align-content: center;
+}
+
+.justify-center-self {
+  justify-self: center;
+}
+
+.align-center-self {
+  align-self: center;
+}
+
+.justify-left {
+  justify-content: left;
+}
+
+.justify-left-self {
+  justify-self: left;
+}
+
+.justify-right {
+  justify-content: right;
+}
+
+.justify-right-self {
+  justify-self: right;
+}
+
+.flex-align-start {
+  align-self: flex-start;
+}
+
+.flex-align-end {
+  align-self: flex-end;
+}
+
+.flex-justify-start {
+  justify-self: flex-start;
+}
+
+.flex-justify-end {
+  justify-self: flex-end;
+}
+
+/* Margins */
+.margin-full {
+  margin: 20px;
+}
+
+.margin-top {
+  margin-top: 20px;
+}
+
+.margin-bottom {
+  margin-bottom: 20px;
+}
+
+.margin-left {
+  margin-left: 20px;
+}
+
+.margin-right {
+  margin-right: 20px;
+}
+
+.marginless {
+  margin: 0px;
+}
+
+/* Padding */
+.padding-full {
+  padding: 20px;
+}
+
+.padding-left {
+  padding-left: 20px;
+}
+
+.padding-right {
+  padding-right: 20px;
+}
+
+.padding-top {
+  padding-top: 20px;
+}
+
+.padding-bottom {
+  padding-bottom: 20px;
+}
+
+/* Border */
+.border {
+  border: solid 1px;
+}
+
+.border-blue {
+  border-color: #0090d1;
+}
+
+.border-green {
+  border-color: #01a647;
+}
+
+.border-grey {
+  border-color: #65666a;
+}
+
+/* Box Shadow */
+.box-shadow {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+/* Text */
+.underline {
+  text-decoration: underline;
+}
+
+.no-text-decor {
+  text-decoration: none;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.text-size-header {
+  font-size: 5em;
+}
+
+.overflow-hidden-x {
+  overflow-x: hidden;
+}
+
+.overflow-hidden-y {
+  overflow-y: hidden;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.test {
+  background-color: red;
+}
+
+/* Animations */
+@keyframes list-grow {
+  to {
+    background-color: rgba(101, 102, 106, 0.75);
+  }
+}
+@keyframes pic-move {
+  to {
+    background-size: 200%;
+  }
+}
+@keyframes pic-reset {
+  from {
+    background-size: 200%;
+  }
+  to {
+    background-size: 100%;
+  }
+}
+
+/*# sourceMappingURL=output.scss.map */

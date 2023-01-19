@@ -1,1 +1,17 @@
+.new-review-button {
+  max-width: 25vw;
+  margin-top: 10px;
+  border-radius: 16px;
+}
 
+.grey-bg-cthru {
+  background-color: rgb(101, 102, 106, 0.75);
+  max-width: 70vw;
+  border-radius: 16px;
+}
+
+.reviews-container {
+  grid-gap: 20px;
+  border-top: solid 1px;
+  border-color: #65666a;
+}

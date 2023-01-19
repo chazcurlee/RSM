@@ -1,5 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import TextField from "@mui/material/TextField";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import Button from "@mui/material/Button";
+import "../styles/ReviewForm.css";
 
 const ReviewForm = (props) => {
   const [newReview, setNewReview] = useState({});
@@ -14,7 +22,7 @@ const ReviewForm = (props) => {
     });
     console.log(post);
 
-    props.setToggle(!props.toggle);
+    props.setRerend(!props.rerend);
   };
 
   const handleChange = (e) => {
@@ -52,28 +60,50 @@ const ReviewForm = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label>Leave a Review</label>
-        <input
-          type="text"
-          id="title"
-          placeholder="Title"
-          onChange={handleChange}
-        ></input>
-        <textarea
-          placeholder="Review"
-          id="body"
-          onChange={handleChange}
-        ></textarea>
-        <input
-          type="text"
-          id="user"
-          placeholder="Name"
-          onChange={handleChange}
-        ></input>
-        <input type="submit"></input>
-      </form>
+    <div className="review-form-container grid-col-start-2 grid-display ">
+      <Dialog open={props.leaveReview} onClose={props.handleCloseReview}>
+        <DialogContent>
+          <TextField
+            autoFocus
+            margin="dense"
+            id="title"
+            label="Title"
+            InputLabelProps={{ shrink: true }}
+            type="text"
+            fullWidth
+            variant="standard"
+            onChange={handleChange}
+            required={true}
+          />
+          <TextField
+            margin="dense"
+            id="user"
+            label="Name"
+            InputLabelProps={{ shrink: true }}
+            type="text"
+            fullWidth
+            variant="standard"
+            onChange={handleChange}
+            required={true}
+          />
+          <TextField
+            margin="dense"
+            id="body"
+            label="Review"
+            InputLabelProps={{ shrink: true }}
+            type="text"
+            fullWidth
+            variant="standard"
+            onChange={handleChange}
+            required={true}
+            rows={5}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={props.handleCloseReview}>Cancel</Button>
+          <Button onClick={handleSubmit}>Submit</Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 };
