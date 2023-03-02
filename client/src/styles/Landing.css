@@ -50,3 +50,7 @@
 .text-body {
   line-height: 1.5;
 }
+
+.space {
+  height: 20vh;
+}
